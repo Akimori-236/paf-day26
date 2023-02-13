@@ -33,14 +33,14 @@ public class TvShowService {
     public List<TvShow> getByGenre(String genre) {
         return tvRepo.getByGenre(genre)
                 .stream()
-                .map(v -> TvShow.createSummary(v))
+                .map(v -> TvShow.createView2(v))
                 .toList();
     }
 
     public List<TvShow> getByType(String type) {
-        return tvRepo.getByGenre(type)
+        return tvRepo.getByType(type)
                 .stream()
-                .map(v -> TvShow.createSummary(v))
+                .map(v -> TvShow.createView2(v))
                 .toList();
     }
 }

@@ -92,7 +92,7 @@ public class TvShowRepository {
 
         // create a query
         Query query = Query.query(criteria)
-                .with(Sort.by(Direction.DESC, FIELD_RATING_AVG))
+                .with(Sort.by(Direction.ASC, FIELD_RATING_AVG))
                 .limit(limit)
                 .skip(skip);
 
@@ -106,4 +106,5 @@ public class TvShowRepository {
         }
         return results;
     }
+
 }

@@ -56,28 +56,12 @@ public class TvShow {
 
     public static TvShow createView2(Document doc) {
         TvShow show = new TvShow();
+        // System.out.println(doc);
         show.setId(doc.getInteger(FIELD_ID));
         show.setName(doc.getString(FIELD_NAME));
-        show.setRating(doc.getDouble(FIELD_AVG));
+        show.setRating((Number) doc.get(FIELD_RATING, Document.class).getOrDefault(FIELD_AVG, Double.NaN));
         System.out.println(show.getId() + show.getName() + show.getUrl());
         return show;
     }
 
-    public static TvShow createSummary(Document doc) {
-        TvShow show = new TvShow();
-        show.setId(doc.getInteger(FIELD_ID));
-        show.setName(doc.getString(FIELD_NAME));
-        show.setRating(doc.);
-
-        // extract the inner object
-        // Document d = (Document) doc.get(FIELD_RATING);
-        // try {
-        //     show.setRating(d.getDouble(FIELD_AVG));
-        // } catch (Exception e) {
-        //     show.setRating(0d);
-        // }
-
-        System.out.println(show.getId() + show.getName() + show.getUrl());
-        return show;
-    }
 }
