@@ -9,7 +9,8 @@
     <body>
         <ul>
             <li data-th-each="g : ${genres}">
-                <p data-th-text="${g}"></p>
+                <a data-th-href="@{${g}}"><span data-th-text="${g}"></span></a>
+
             </li>
         </ul>
     </body>
