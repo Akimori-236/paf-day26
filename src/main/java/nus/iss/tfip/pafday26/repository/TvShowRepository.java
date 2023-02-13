@@ -61,7 +61,7 @@ public class TvShowRepository {
         Query query = Query.query(criteria);
 
         // PROJECTIONS
-        query.fields().exclude(FIELD_OBJ_ID).include(FIELD_ID, FIELD_NAME, FIELD_RATING_AVG);
+        query.fields().exclude(FIELD_OBJ_ID).include(FIELD_ID, FIELD_NAME, FIELD_URL, FIELD_RATING_AVG);
 
         // run the query, return a Document class instance, from tv collection/table
         List<Document> results = template.find(query, Document.class, COLLECTION_TV);
@@ -97,7 +97,7 @@ public class TvShowRepository {
                 .skip(skip);
 
         // PROJECTIONS
-        query.fields().exclude(FIELD_OBJ_ID).include(FIELD_ID, FIELD_NAME, FIELD_RATING_AVG);
+        query.fields().exclude(FIELD_OBJ_ID).include(FIELD_ID, FIELD_NAME, FIELD_URL, FIELD_RATING_AVG);
 
         // run the query, return a Document class instance, from tv collection/table
         List<Document> results = template.find(query, Document.class, COLLECTION_TV);

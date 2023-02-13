@@ -43,13 +43,12 @@ public class TvShow {
         this.rating = rating;
     }
 
+    // used for findByLanguage
     public static TvShow create(Document doc) {
         TvShow show = new TvShow();
         show.setId(doc.getInteger(FIELD_ID));
         show.setName(doc.getString(FIELD_NAME));
         show.setUrl(doc.getString(FIELD_URL));
-        // System.out.println(doc.getInteger(FIELD_ID) + doc.getString(FIELD_NAME) +
-        // doc.getString(FIELD_URL));
         System.out.println(show.getId() + show.getName() + show.getUrl());
         return show;
     }
@@ -59,8 +58,11 @@ public class TvShow {
         // System.out.println(doc);
         show.setId(doc.getInteger(FIELD_ID));
         show.setName(doc.getString(FIELD_NAME));
+        show.setUrl(doc.getString(FIELD_URL));
+        // get 'rating' as document class, then get 'average' or default to NaN, then parse as 'Number'
         show.setRating((Number) doc.get(FIELD_RATING, Document.class).getOrDefault(FIELD_AVG, Double.NaN));
-        System.out.println(show.getId() + show.getName() + show.getUrl());
+        // System.out.println(show.getId() + show.getName() + show.getUrl());
+
         return show;
     }
 
