@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <h1 data-th-text="${lang}"></h1>
+
+        <!-- <ul>
+            <li data-th-each="show : ${tvshows}">
+                <a data-th-href="${show.url}"
+                    ><span data-th-text="${show.name}"></span
+                ></a>
+            </li>
+        </ul> -->
+
+        <table border="1">
+            <tr data-th-each="show : ${tvshows}">
+                <div data-th-object="${show}">
+                    <td data-th-text="*{id}"></td>
+                    <td>
+                        <a data-th-href="*{url}">
+                            <span data-th-text="*{name}"></span>
+                        </a>
+                    </td>
+                </div>
+            </tr>
+        </table>
+    </body>
+</html>
