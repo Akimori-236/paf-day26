@@ -25,4 +25,22 @@ public class TvShowService {
     public List<String> getAllGenres() {
         return tvRepo.getAllGenres();
     }
+
+    public List<String> getAllTypes() {
+        return tvRepo.getAllTypes();
+    }
+
+    public List<TvShow> getByGenre(String genre) {
+        return tvRepo.getByGenre(genre)
+                .stream()
+                .map(v -> TvShow.createSummary(v))
+                .toList();
+    }
+
+    public List<TvShow> getByType(String type) {
+        return tvRepo.getByGenre(type)
+                .stream()
+                .map(v -> TvShow.createSummary(v))
+                .toList();
+    }
 }
